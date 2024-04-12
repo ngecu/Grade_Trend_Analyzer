@@ -78,8 +78,7 @@ class DataScienceAnalyzer:
 
         plt.tight_layout()
         plt.show()
-
-        # Print table of group intervals and frequencies
+        
         table_2020 = tabulate(zip(x_ticks_2020, frequencies), headers=['Grade Intervals', 'Frequency'], tablefmt='pretty')
         print("2020 Exam Grade Intervals and Frequencies:")
         print(table_2020)
