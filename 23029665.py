@@ -1,7 +1,6 @@
 import csv
 import numpy as np
 import matplotlib.pyplot as plt
-from tabulate import tabulate
 
 class DataScienceAnalyzer:
     def __init__(self):
@@ -64,6 +63,9 @@ class DataScienceAnalyzer:
         plt.xticks(rotation=45)
         plt.text(0.2, 0.95, f"Mean: {mean_2020}\nStd Dev: {std_2020}\nV Value: {v_value}",
                 transform=plt.gca().transAxes, va='top', ha='right')
+                
+        plt.text(0.95, 0.55, f"My Student ID: 23029665",
+                transform=plt.gca().transAxes, va='top', ha='right')
         plt.legend()
 
         plt.subplot(2, 1, 2)
@@ -74,19 +76,16 @@ class DataScienceAnalyzer:
         plt.xticks(rotation=45)
         plt.text(0.2, 0.95, f"Mean: {mean_2024}\nStd Dev: {std_2024}",
                 transform=plt.gca().transAxes, va='top', ha='right')
+
+        plt.text(0.95, 0.55, f"My Student ID: 23029665",
+                transform=plt.gca().transAxes, va='top', ha='right')
+
         plt.legend()
 
         plt.tight_layout()
+        plt.subplots_adjust(hspace=0.5)
         plt.show()
         
-        table_2020 = tabulate(zip(x_ticks_2020, frequencies), headers=['Grade Intervals', 'Frequency'], tablefmt='pretty')
-        print("2020 Exam Grade Intervals and Frequencies:")
-        print(table_2020)
-
-        table_2024 = tabulate(zip(x_ticks_2024, np.histogram(data_2024, bins=len(x_ticks_2024))[0]), headers=['Grade Intervals', 'Frequency'], tablefmt='pretty')
-        print("\n2024 Exam Grade Intervals and Frequencies:")
-        print(table_2024)
-
 
     def main(self):
         intervals, frequencies = self.read_2020_file('./2020input5.csv')
